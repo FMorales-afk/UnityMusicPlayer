@@ -29,7 +29,7 @@ public class MusicPlayer : MonoBehaviour
 
         musicSource = GetComponent<AudioSource>();
 
-        StartMusic();
+        //StartMusic();
     }
 
     
