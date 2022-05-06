@@ -10,6 +10,7 @@ public class Song : MonoBehaviour
     public string title;
     public string artist;
     public string album;
+    public string length;
     public TimeSpan songLength;
 
     public AudioClip song;
@@ -29,7 +30,7 @@ public class Song : MonoBehaviour
         songText.text = title;
         artistText.text = artist;
         albumText.text = album;
-        lengthText.text = songLength.ToString();
+        lengthText.text = length;
     }
 
     public Song()
