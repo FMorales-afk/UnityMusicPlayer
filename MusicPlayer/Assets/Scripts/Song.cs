@@ -23,6 +23,9 @@ public class Song : MonoBehaviour
     public TextMeshProUGUI albumText;
     public TextMeshProUGUI lengthText;
 
+    public TextMeshProUGUI songInfo;
+    public TextMeshProUGUI artistInfo;
+
     private void Awake()
     {
         player = FindObjectOfType<AudioSource>();
@@ -44,6 +47,8 @@ public class Song : MonoBehaviour
 
     public void OnClickPlay()
     {
+        songInfo.text = title;
+        artistInfo.text = artist;
         player.Stop();
         player.clip = song;
         player.Play();
