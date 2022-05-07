@@ -8,6 +8,8 @@ using TMPro;
 /// Authors: Pavel Delev, Hadriel Saldua
 /// 
 /// Song class, holds properties related to songs.
+/// Function OnClickPlay(): When the assigned button is clicked, stop the current song, load in the clicked one, play the song, 
+///     and update the UI to reflect the change.
 /// </summary>
 public class Song : MonoBehaviour
 {
