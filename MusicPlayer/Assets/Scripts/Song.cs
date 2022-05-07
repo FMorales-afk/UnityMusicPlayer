@@ -11,6 +11,7 @@ using TMPro;
 /// </summary>
 public class Song : MonoBehaviour
 {
+    // variables to handle the song data
     public int num;
     public string title;
     public string artist;
@@ -18,27 +19,30 @@ public class Song : MonoBehaviour
     public string length;
     public TimeSpan songLength;
 
+    // holds the song itself
     public AudioClip song;
 
+    // interacts with the player to load song
     public AudioSource player;
 
+    // Used to display data to UI
     public TextMeshProUGUI numText;
     public TextMeshProUGUI songText;
     public TextMeshProUGUI artistText;
     public TextMeshProUGUI albumText;
     public TextMeshProUGUI lengthText;
-
     public TextMeshProUGUI songInfo;
     public TextMeshProUGUI artistInfo;
 
+    // When the program starts
     private void Awake()
     {
-        player = FindObjectOfType<AudioSource>();
-        numText.text = num.ToString();
-        songText.text = title;
-        artistText.text = artist;
-        albumText.text = album;
-        lengthText.text = length;
+        player = FindObjectOfType<AudioSource>(); // get the audio player
+        numText.text = num.ToString(); // write the song number to ui
+        songText.text = title; // write the title to the ui
+        artistText.text = artist; // write the artist to the ui
+        albumText.text = album; // write the album to the ui
+        lengthText.text = length; // write teh song length to the ui
     }
 
     /// <summary>
@@ -53,11 +57,17 @@ public class Song : MonoBehaviour
         songLength = new TimeSpan(0, 0, 0);
     }
 
+    // function to be called when song is clicked
     public void OnClickPlay()
     {
+        // writes the song and artist to botom left ui
         songInfo.text = title;
         artistInfo.text = artist;
+
+        // stop the current song
         player.Stop();
+
+        // load the clicked song and play
         player.clip = song;
         player.Play();
     }
