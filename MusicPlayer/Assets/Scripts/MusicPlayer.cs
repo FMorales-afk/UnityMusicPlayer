@@ -5,17 +5,20 @@ using UnityEngine;
 public class MusicPlayer : MonoBehaviour
 {
     
-    
+    //Created list to hold audio clips
     public List<AudioClip> musicClips = new List<AudioClip>();
 
+    //Audio source to take in mp3 files
     private AudioSource musicSource;
 
+    //checks which track is currently playing
     AudioClip currentTrack; 
 
     private float length;
 
+    //loop to allow music to continue playing
     private Coroutine musicLoop;
-
+    //queue that plays music in order 
     private MusicQueue musicQueue;
 
     
@@ -33,7 +36,7 @@ public class MusicPlayer : MonoBehaviour
     }
 
     
-
+    //plays music once track has ended
     public void PlayMusicClip(AudioClip music)
     {
         musicSource.Stop();
@@ -41,6 +44,8 @@ public class MusicPlayer : MonoBehaviour
         musicSource.Play();
     }
 
+
+    //if not null music loop halts
     public void StopMusic()
     {
         if(musicLoop != null)
@@ -49,6 +54,7 @@ public class MusicPlayer : MonoBehaviour
         }
     }
 
+    //begins beginning track of playlist
     public void StartMusic()
     {
         musicLoop = StartCoroutine(musicQueue.LoopMusic(this, 0, PlayMusicClip));
@@ -60,6 +66,7 @@ public class MusicPlayer : MonoBehaviour
    
 }
 
+//queue 
 public class MusicQueue
 {
    private List<AudioClip> clips;
@@ -84,7 +91,7 @@ public class MusicQueue
             yield return new WaitForSeconds(clip.length + delay);
         }
     }
-
+    //feautrue to randomize play order 
     public List<AudioClip> RandomizeList(List<AudioClip> list)
     {
         List<AudioClip> copy = new List<AudioClip>(list);
