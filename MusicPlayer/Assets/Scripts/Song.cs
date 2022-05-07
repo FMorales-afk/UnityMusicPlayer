@@ -4,6 +4,11 @@ using UnityEngine;
 using System;
 using TMPro;
 
+/// <summary>
+/// Authors: Pavel Delev, Hadriel Saldua
+/// 
+/// Song class, holds properties related to songs.
+/// </summary>
 public class Song : MonoBehaviour
 {
     public int num;
@@ -36,6 +41,9 @@ public class Song : MonoBehaviour
         lengthText.text = length;
     }
 
+    /// <summary>
+    /// Default constructor
+    /// </summary>
     public Song()
     {
         num = 0;
